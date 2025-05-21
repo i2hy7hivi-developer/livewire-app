@@ -3,11 +3,18 @@
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/counter', Counter::class)->name('counter');
+
+Route::get('/first-component', function () {
+    return view('first-component');
+})->name('first-component');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

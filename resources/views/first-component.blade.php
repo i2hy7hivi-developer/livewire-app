@@ -7,9 +7,11 @@
     @livewireStyles
 </head>
 <body>
-    <x-layouts.auth.simple :title="$title ?? null">
-        {{ $slot }}
-    </x-layouts.auth.simple>
+    <div>
+        <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
+        <livewire:first-component />
+        <livewire:counter />
+    </div>
     @livewireScripts
 </body>
 </html>
