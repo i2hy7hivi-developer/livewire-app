@@ -13,6 +13,7 @@ Route::get('/', function () {
 Route::get('/counter', Counter::class)->name('counter');
 
 Route::get('/first-component', function () {
+    \App\Helpers\GeneralHelper::pred('This is a test message from the first component route.');
     return view('first-component');
 })->name('first-component');
 
