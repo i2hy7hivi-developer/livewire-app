@@ -21,6 +21,12 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::prefix('stripe')->name('stripe.')->group(function () {
+    Route::view('form', 'stripe.identity.index')->name('stripe.identity.index');
+    Route::get('verify-identity', [\App\Http\Controllers\StripeIdentityController::class, 'createVerificationSession'])->name('verify.identity');
+    Route::get('verify-identity/callback', [\App\Http\Controllers\StripeIdentityController::class, 'handleCallback'])->name('verify.identity.callback');
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
